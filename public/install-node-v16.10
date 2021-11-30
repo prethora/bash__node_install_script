@@ -8,6 +8,6 @@ printf 'alias node="$PWD/bin/node"; alias npm="$PWD/bin/npm"' > link
 chmod +x link
 source ./link
 cd ..
-echo "Add the following path to the `Environment=PATH` variable in the service file:"
+echo "Add the following path to the Environment=PATH variable in the service file:"
 echo ""
 echo "$PWD/${NODE_VERB}/bin"
