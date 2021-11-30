@@ -1,0 +1,13 @@
+NODE_VERB=node-v16.10.0-linux-x64
+[[ -e "${NODE_VERB}.tar.gz" ]] && rm "${NODE_VERB}.tar.gz"
+[[ -e "${NODE_VERB}" ]] && rm -rf "${NODE_VERB}"
+wget "https://nodejs.org/dist/v16.10.0/${NODE_VERB}.tar.gz"
+tar -xzf "${NODE_VERB}.tar.gz"
+cd "${NODE_VERB}"
+printf 'alias node="$PWD/bin/node"; alias npm="$PWD/bin/npm"' > link
+chmod +x link
+source ./link
+cd ..
+echo "Add the following path to the `Environment=PATH` variable in the service file:"
+echo ""
+echo "$PWD/${NODE_VERB}/bin"
